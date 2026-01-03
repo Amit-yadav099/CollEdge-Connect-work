@@ -16,7 +16,7 @@
 A modern, full-featured Contact Management Web Application built with the MERN stack (MongoDB, Express.js, React, Node.js). This application allows users to manage their contacts efficiently with a beautiful, responsive UI and comprehensive functionality.
 
 ## 🎯 Live Demo
-Live Application URL: https://your-live-demo-link-here
+Live Application URL: https://colledge-connect-work-4.onrender.com/
 
 
 ## ✨ Features
@@ -64,7 +64,7 @@ Live Application URL: https://your-live-demo-link-here
     ```
     **Create .env file in the frontend directory:**
      ```bash
-     REACT_APP_API_URL=http://localhost:5000/api
+     VITE_API_URL=http://localhost:5000/api
      ```
 
 4.  **Run the Application:**
