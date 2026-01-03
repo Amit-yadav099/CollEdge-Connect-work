@@ -74,10 +74,11 @@ const ContactFormModal = ({ isOpen, onClose, onSubmit, isLoading }) => {
         {/* HEADER */}
         <div className="px-8 py-6 border-b flex items-center justify-between">
           <div>
-            <h2 className="px-2 text-xl font-semibold  text-gray-800">
-              Add New Contact
-            </h2>
-            <p className="text-sm text-gray-500">
+            <h2 className="text-lg font-semibold text-gray-900  flex items-center gap-2">
+  <span className="w-1.5 h-6 rounded-full" />
+  Add New Contact
+</h2>
+            <p className="text-sm text-gray-500 pl-3">
               Enter contact details below
             </p>
           </div>

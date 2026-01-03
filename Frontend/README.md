@@ -1,211 +1,210 @@
-import React, { useState } from 'react';
-import ReactModal from 'react-modal';
-import { X, User, Mail, Phone, MessageSquare } from 'lucide-react';
+<div align="center">
+  <br />
+    <h1 align="center">Contact Management System</h1>
+<img width="1470" alt="Dashboard" src="./public/dashboard.png">
+<br />
 
-ReactModal.setAppElement('#root');
+<div>
 
-const ContactFormModal = ({ isOpen, onClose, onSubmit, isLoading }) => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    message: '',
-  });
+</div>
 
-  const [errors, setErrors] = useState({});
+</div>
 
-  const validateForm = () => {
-    const newErrors = {};
 
-    if (!formData.name.trim()) {
-      newErrors.name = 'Name is required';
-    }
 
-    const emailRegex = /^\S+@\S+\.\S+$/;
-    if (!emailRegex.test(formData.email)) {
-      newErrors.email = 'Invalid email address';
-    }
+## <a name="introduction">✨ Introduction</a>
+A modern, full-featured Contact Management Web Application built with the MERN stack (MongoDB, Express.js, React, Node.js). This application allows users to manage their contacts efficiently with a beautiful, responsive UI and comprehensive functionality.
 
-    if (!formData.phone.trim()) {
-      newErrors.phone = 'Phone number is required';
-    }
+## 🎯 Live Demo
+Live Application URL: https://your-live-demo-link-here
 
-    if (formData.message.length > 500) {
-      newErrors.message = 'Message cannot exceed 500 characters';
-    }
 
-    return newErrors;
-  };
+## ✨ Features
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
-    setErrors(prev => ({ ...prev, [name]: '' }));
-  };
+- Professional Dashboard with real-time statistics
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const validationErrors = validateForm();
+- Responsive Design that works on all devices
 
-    if (Object.keys(validationErrors).length === 0) {
-      onSubmit(formData);
-      setFormData({ name: '', email: '', phone: '', message: '' });
-      onClose();
-    } else {
-      setErrors(validationErrors);
-    }
-  };
+- Beautiful Gradient Color Scheme with smooth animations
 
-  const isFormValid =
-    formData.name.trim() &&
-    formData.email.trim() &&
-    formData.phone.trim() &&
-    !isLoading;
+- Lucide React Icons for enhanced visual appeal
 
-  return (
-    <ReactModal
-      isOpen={isOpen}
-      onRequestClose={onClose}
-      className="outline-none"
-      overlayClassName="fixed inset-0 bg-black/50 flex items-center justify-center"
-    >
-      <div className="bg-white w-full max-w-2xl rounded-2xl shadow-2xl">
+- Interactive Modals for detailed views and forms
 
-        {/* HEADER */}
-        <div className="px-8 py-6 border-b flex items-center justify-between">
-          <div>
-            <h2 className="text-xl font-semibold text-gray-800">
-              Add New Contact
-            </h2>
-            <p className="text-sm text-gray-500">
-              Enter contact details below
-            </p>
-          </div>
+- Sorting & Filtering options for easy contact management
 
-          <button
-            onClick={onClose}
-            className="p-2 rounded-full hover:bg-gray-100"
-          >
-            <X className="w-5 h-5 text-gray-600" />
-          </button>
-        </div>
+## ⚙️ Setup Instructions
 
-        {/* FORM BODY */}
-        <form onSubmit={handleSubmit} className="px-8 py-6">
-          <div className="grid grid-cols-2 gap-6">
 
-            {/* NAME */}
-            <div>
-              <label className="flex items-center text-sm font-medium mb-2">
-                <User className="w-4 h-4 mr-2" />
-                Full Name
-              </label>
-              <input
-                type="text"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 ${
-                  errors.name ? 'border-red-500' : 'border-gray-300'
-                }`}
-                placeholder="Amit Yadav"
-              />
-              {errors.name && (
-                <p className="text-sm text-red-500 mt-1">{errors.name}</p>
-              )}
-            </div>
+### Installation
 
-            {/* EMAIL */}
-            <div>
-              <label className="flex items-center text-sm font-medium mb-2">
-                <Mail className="w-4 h-4 mr-2" />
-                Email
-              </label>
-              <input
-                type="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 ${
-                  errors.email ? 'border-red-500' : 'border-gray-300'
-                }`}
-                placeholder="Amit@example.com"
-              />
-              {errors.email && (
-                <p className="text-sm text-red-500 mt-1">{errors.email}</p>
-              )}
-              
-            </div>
+1.  **Clone the repository:**
+    ```bash
+    git clone <repository-url>
+     https://github.com/Amit-yadav099/CollEdge-Connect-work.git
+    ```
 
-            {/* PHONE */}
-            <div className="col-span-2">
-              <label className="flex items-center text-sm font-medium mb-2">
-                <Phone className="w-4 h-4 mr-2" />
-                Phone Number
-              </label>
-              <input
-                type="tel"
-                name="phone"
-                value={formData.phone}
-                onChange={handleChange}
-                className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 ${
-                  errors.phone ? 'border-red-500' : 'border-gray-300'
-                }`}
-                placeholder="+91 (123) 456-7892"
-              />
-              {errors.phone && (
-                <p className="text-sm text-red-500 mt-1">{errors.phone}</p>
-              )}
-            </div>
+2.  **Backend Setup:**
+    ```bash
+    cd backend
+    npm install
+    ```
+   
+    **Create .env file in the backend directory :**
+    ```bash
+    PORT=5000
+    MONGODB_URI=mongodb://localhost:27017/contact_manager
+    NODE_ENV=development
+    ```
 
-            {/* MESSAGE */}
-            <div className="col-span-2">
-              <label className="flex items-center text-sm font-medium mb-2">
-                <MessageSquare className="w-4 h-4 mr-2" />
-                Message
-              </label>
-              <textarea
-                name="message"
-                rows="4"
-                value={formData.message}
-                onChange={handleChange}
-                className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 ${
-                  errors.message ? 'border-red-500' : 'border-gray-300'
-                }`}
-              />
-              <div className="flex justify-between mt-1 text-sm text-gray-500">
-                {errors.message && (
-                  <span className="text-red-500">{errors.message}</span>
-                )}
-                <span>{formData.message.length}/500</span>
-              </div>
-            </div>
-          </div>
-        </form>
+3.  **Frontend Setup:**
+    ```bash
+    cd frontend   
+    npm install
+    ```
+    **Create .env file in the frontend directory:**
+     ```bash
+     REACT_APP_API_URL=http://localhost:5000/api
+     ```
 
-        {/* FOOTER */}
-        <div className="px-8 py-6 border-t flex justify-end gap-4">
-          <button
-            type="button"
-            onClick={onClose}
-            className="px-6 py-2.5 rounded-lg bg-gray-100 hover:bg-gray-200"
-          >
-            Cancel
-          </button>
+4.  **Run the Application:**
+    
+    Start the backend Server
+    ```bash
+    cd backend
+    npm run dev
+    # Server runs on http://localhost:5000
+    ```
+    Start the frontend Server
+    ```bash
+    cd frontend
+    npm start
+    # App runs on http://localhost:3000
+    ```
 
-          <button
-            type="submit"
-            onClick={handleSubmit}
-            disabled={!isFormValid}
-            className="px-6 py-2.5 rounded-lg bg-blue-600 text-white hover:bg-blue-700 disabled:bg-gray-400"
-          >
-            {isLoading ? 'Adding...' : 'Add Contact'}
-          </button>
-        </div>
+## <a name="Project">Project Structure</a>
+``` bash
+contact-manager/
+├── backend/
+│   ├── server.js              # Main server file
+│   ├── package.json           
+│   ├── .env                  # Environment variables
+│   ├── models/
+│   │   └── Contact.js        # MongoDB schema
+│   ├── routes/
+│   │   └── contacts.js       # API routes
+│   └── middleware/
+│       └── errorMiddleware.js # Error handling
+└── frontend/
+    ├── public/
+    │   └── index.html       
+    ├── src/
+    │   ├── App.js            # Main React component
+    │   ├── index.js          # React entry point
+    │   ├── components/
+    │   │   ├── Header.js     # Application header
+    │   │   ├── StatsDashboard.js # Stats dashboard
+    │   │   ├── ContactTable.js   # Contact table
+    │   │   ├── ContactDetailModal.js # Detail modal
+    │   │   ├── ContactFormModal.js   # Form modal
+    │   │   └── Alert.js      # Notification component
+    │   └── services/
+    │       └── api.js        
+    └── package.json          
+```
+## <a name="key-featuere">🎯 Key Features in Detail</a>
 
-      </div>
-    </ReactModal>
-  );
-};
+📋 Core Functionality
+-  Contact Creation with form validation
 
-export default ContactFormModal;
+-  Contact Listing in tabular format with pagination
+
+-  Contact Details View with comprehensive information
+
+-  Contact Deletion with confirmation
+
+-  Real-time Validation for all form fields
+
+-  Responsive Table with search capabilities
+
+-  Statistics Dashboard with metrics
+
+<br>
+
+🚀 Advanced Features
+- Pagination for large contact lists
+
+- Sorting by name, date, and other criteria
+
+- Filtering by time periods (today, week, month)
+
+- Export Ready contact data
+
+- Success/Error Notifications
+
+- Loading States and skeleton screens
+
+- Dark/Light Mode Ready design
+
+<br>
+
+🎨 UI/UX Features
+- Professional Dashboard with real-time statistics
+
+- Responsive Design that works on all devices
+
+- Beautiful Gradient Color Scheme with smooth animations
+
+- Lucide React Icons for enhanced visual appeal
+
+- Interactive Modals for detailed views and forms
+
+- Sorting & Filtering options for easy contact management
+
+<br>
+
+📚 Technologies Used
+ 
+ Frontend:
+
+- React 18.2.0
+
+- Tailwind CSS 3.3.0
+
+- Lucide React (for icons)
+
+- Axios (for API calls)
+
+- React Modal
+
+Backend:
+- Node.js 18.x
+
+- Express.js 4.18.2
+
+- MongoDB with Mongoose ODM
+
+- CORS for cross-origin requests
+
+- Dotenv for environment variables
+
+<br>
+
+
+Endpoints:
+
+- GET /api/contacts - Get all contacts
+
+- GET /api/contacts/:id - Get single contact
+
+- POST /api/contacts/ - create new contact
+
+- DELETE /api/contacts/:id - Delete contact
+
+<br>
+
+## <a name="Images">Different frontend UI</a>
+<img width="1470" alt="form" src="./public/form.png">
+<br></br>
+<img width="1470" alt="userList" src="./public/details.png">
+
