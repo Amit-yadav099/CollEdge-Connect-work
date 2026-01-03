@@ -1,7 +1,7 @@
 <div align="center">
   <br />
     <h1 align="center">Contact Management System</h1>
-<img width="1470" alt="Dashboard" src="../CollEge Connect/Frontend/public/dashboard.png">
+<img width="1470" alt="Dashboard" src="./Frontend/public/dashboard.png">
 <br />
 
 <div>
@@ -204,7 +204,7 @@ Endpoints:
 <br>
 
 ## <a name="Images">Different frontend UI</a>
-<img width="1470" alt="form" src="../CollEge Connect/Frontend//public/form.png">
+<img width="1470" alt="form" src="./Frontend/public/form.png">
 <br></br>
-<img width="1470" alt="userList" src="../CollEge Connect/Frontend//public/details.png">
+<img width="1470" alt="userList" src="./Frontend/public/details.png">
 
